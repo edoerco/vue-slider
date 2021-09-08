@@ -13,7 +13,8 @@ const app = new Vue({
             'img/image2.jpg',
             'img/image3.jpg',
             'img/image4.jpg'
-        ]
+        ],
+        timer: 0
     },
     methods: {
         prevPhoto(){
@@ -23,6 +24,13 @@ const app = new Vue({
         nextPhoto(){
             this.counterPhoto += 1;
             if(this.counterPhoto == (this.photos.length)) this.counterPhoto = 0;
+        },
+        startRotation() {   
+            // setInterval(funzione, secondi * 1000)
+            this.timer = setInterval(this.nextPhoto, 3000)
         }
+    },
+    mounted() {
+        this.startRotation();
     }
 })
