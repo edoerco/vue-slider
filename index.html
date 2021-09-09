@@ -11,11 +11,14 @@
 </head>
 <body>
     <div id="root" class="container">
+        <!-- bottoni -->
+        <i @click="toggleVisibility" v-if="playVisible" class="fas fa-play"></i>
+        <i @click="toggleVisibility" v-else class="fas fa-pause"></i>
+
         <div class="slider-wrapper">
             <!-- slide sinistra -->
             <div class="prev" @click="prevPhoto">
                 <i class="fas fa-angle-left"></i>
-
             </div>
             <!-- immagini -->
             <div class="images">
@@ -27,7 +30,7 @@
 
             </div>
             <div class="nav">
-                <i :class="(index == counterPhoto) ? 'active' : null" class="fas fa-circle" v-for="(photo, index) in photos"></i>
+                <i @click="changePhoto" :class="(index == counterPhoto) ? 'active' : null" class="fas fa-circle" v-for="(photo, index) in photos"></i>
               
 
             </div>
